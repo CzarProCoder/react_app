@@ -11,13 +11,13 @@ const initialFoodItems = [
 
 function FoodItemComponent({ foodItem }) {
   return (
-    <div>
-      <img src="/assets/public/food_image.png" alt="Food"/>
+    <div className="food-item">
+      <img src="/assets/public/food_image.png" alt="Food" className="food-image" />
       <p>FOOD</p>
       <p className="date">{foodItem.createdAt.toLocaleString()}</p>
       <p>ID: {foodItem.id}</p>
       <p>Updated: {foodItem.updatedAt.toLocaleString()}</p>
-      <p>Chuck Norris doesn't believe in ravioli. He stuffs a little turtle with beef and smothers it in pig's blood.</p>
+      <p className="joke-text">Chuck Norris doesn't believe in ravioli. He stuffs a little turtle with beef and smothers it in pig's blood.</p>
     </div>
   );
 }
@@ -26,16 +26,16 @@ function FoodList() {
   const [foodItems] = useState(initialFoodItems);
   
   return (
-    <>
+    <div className="food-list">
       <h4>Food, Career, Celebrity, Dev</h4>
       <ul>
         {foodItems.map((foodItem) => (
-          <div key={foodItem.id}>
+          <li key={foodItem.id} className="food-list-item">
             <FoodItemComponent foodItem={foodItem} />
-          </div>
+          </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

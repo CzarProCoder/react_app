@@ -5,17 +5,16 @@ import ChuckNorrisJokes from './ChuckNorrisJokes';
 
 function App() {
   return (
-    <div>
-      <div>
+    <div className="app-container">
+      <div className="jokes-section">
         <ChuckNorrisJokes />
-        <br/>
-        <br/>
+        <br />
+        <br />
       </div>
-      <div className="App">
+      <div className="food-section">
         <FoodList />
       </div>
     </div>
-
   );
 }
 

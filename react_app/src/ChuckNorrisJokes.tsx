@@ -11,7 +11,6 @@ const ChuckNorrisJokes: React.FC = () => {
   const [jokes, setJokes] = useState<Joke[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch available categories on component mount
   useEffect(() => {
     fetch('https://api.chucknorris.io/jokes/categories')
       .then((response) => response.json())
@@ -19,7 +18,6 @@ const ChuckNorrisJokes: React.FC = () => {
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
-  // Fetch jokes based on selected category
   const fetchJokes = (category: string) => {
     setLoading(true);
     fetch(`https://api.chucknorris.io/jokes/search?query=${category}`)
@@ -35,11 +33,12 @@ const ChuckNorrisJokes: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="jokes-container">
       <h1>Chuck Norris Jokes</h1>
       <label htmlFor="category-select">Select a category:</label>
       <select
         id="category-select"
+        className="category-select"
         value={selectedCategory}
         onChange={(e) => {
           setSelectedCategory(e.target.value);
@@ -55,11 +54,11 @@ const ChuckNorrisJokes: React.FC = () => {
       </select>
 
       {loading ? (
-        <p>Loading jokes...</p>
+        <p className="loading-message">Loading jokes...</p>
       ) : (
-        <ul>
+        <ul className="jokes-list">
           {jokes.map((joke) => (
-            <li key={joke.id}>{joke.value}</li>
+            <li key={joke.id} className="joke-item">{joke.value}</li>
           ))}
         </ul>
       )}
