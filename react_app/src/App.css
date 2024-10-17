@@ -41,7 +41,7 @@
   color: #888;
 }
 
-/* Additions by Julius for the food app */
+/* App.css */
 body {
   margin: 0;
   padding: 0;
@@ -104,13 +104,13 @@ body {
 
 /* Food Section */
 .food-section {
-  max-width: 600px;
+  max-width: 1200px;
   width: 100%;
 }
 
 .food-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 0;
 }
@@ -124,41 +124,52 @@ body {
   padding: 20px;
   border-radius: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 20px;
+  align-items: flex-start;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .food-image {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 10px;
 }
 
 .food-item-details {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  flex-grow: 1; /* Allows text to take available space */
 }
 
-.food-item-details p {
-  margin: 5px 0;
+.food-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f39c12;
+  margin-bottom: 5px; /* Add some spacing below the food name */
 }
 
-.date {
-  font-size: 12px;
+.date,
+.id,
+.updated {
+  font-size: 14px;
   color: #999;
+  margin-bottom: 3px; /* Add some spacing below each date */
 }
 
 .joke-text {
   font-style: italic;
   color: #e67e22;
+  margin-top: 10px; /* Add spacing before the joke text */
 }
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
+  .food-list {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
   .food-item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Keep the image on the left */
   }
 
   .food-image {
