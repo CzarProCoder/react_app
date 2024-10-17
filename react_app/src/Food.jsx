@@ -12,6 +12,7 @@ const initialFoodItems = [
 function FoodItemComponent({ foodItem }) {
   return (
     <div>
+      <img src="/assets/public/food_image.png" alt="Food"/>
       <p>FOOD</p>
       <p className="date">{foodItem.createdAt.toLocaleString()}</p>
       <p>ID: {foodItem.id}</p>
